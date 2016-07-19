@@ -26,7 +26,8 @@ set list listchars=tab:→\ ,trail:·
 " Keys remapping
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-A-t>     :tabnew<CR>
+nnoremap <C-A-t>   :tabnew<CR>
+nnoremap <C-o>     :!bash<CR>
 cmap W w ! sudo tee %
 
 " Plugins section
