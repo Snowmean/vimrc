@@ -15,20 +15,35 @@ set scrolloff=8
 set showtabline=2
 set nocompatible
 set dir=/tmp
+set completeopt-=preview
+
 " Syntax support
 filetype plugin indent on
 syntax on
 colorscheme desert
 set list listchars=tab:→\ ,trail:·
+
 " Keys remapping
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-A-t>   :tabnew<CR>
-nnoremap <C-o>     :!bash<CR>
+nnoremap <C-A-t>     :tabnew<CR>
+nnoremap <Leader>q" ciw""<Esc>P
+nnoremap <Leader>q' ciw''<Esc>P
 cmap W w ! sudo tee %
+
+" Fix neocomplete and multiple-cursor issue
+function! Multiple_cursors_before()
+    exe 'NeoCompleteLock'
+    echo 'Disabled autocomplete'
+endfunction
+function! Multiple_cursors_after()
+    exe 'NeoCompleteUnlock'
+    echo 'Enabled autocomplete'
+endfunction
 
 " Plugins section
 call plug#begin('~/.vim/plugged')
+
 " Plugins list
 Plug 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
