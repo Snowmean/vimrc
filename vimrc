@@ -19,6 +19,7 @@ set completeopt-=preview
 set mouse=a
 set clipboard=unnamedplus
 set spell spelllang=en_us
+set nolist wrap linebreak breakat&vim
 
 " Fixing spelling highlight
 function s:SetSpellHightlight()
