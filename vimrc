@@ -20,6 +20,12 @@ set mouse=a
 set clipboard=unnamedplus
 set spell spelllang=en_us
 
+" Fixing spelling highlight
+function s:SetSpellHightlight()
+    hi SpellBad ctermbg=52
+endfunction
+autocmd VimEnter * call s:SetSpellHightlight()
+
 " Fix Mac backspace issue
 set backspace=indent,eol,start
 
