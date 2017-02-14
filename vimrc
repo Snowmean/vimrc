@@ -17,7 +17,8 @@ set nocompatible
 set dir=/tmp
 set completeopt-=preview
 set mouse=a
-set clipboard=unnamed
+set clipboard=unnamedplus
+set spell spelllang=en_us
 
 " Syntax support
 filetype plugin indent on
@@ -44,6 +45,10 @@ function! Multiple_cursors_after()
     echo 'Enabled autocomplete'
 endfunction
 
+" Grammarous config
+let g:grammarous#hooks = {}
+let g:grammarous#languagetool_cmd = 'languagetool'
+
 " Plugins section
 call plug#begin('~/.vim/plugged')
 
@@ -64,9 +69,7 @@ Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'dpelle/vim-LanguageTool'
-let g:languagetool_jar='$HOME/.vim/languagetool-commandline.jar'
-let g:languagetool_win_height=10
+Plug 'rhysd/vim-grammarous'
 
 " Snippets Plugins and Config
 Plug 'SirVer/ultisnips'
