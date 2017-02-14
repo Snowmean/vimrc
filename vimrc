@@ -16,6 +16,8 @@ set showtabline=2
 set nocompatible
 set dir=/tmp
 set completeopt-=preview
+set mouse=a
+set clipboard=unnamed
 
 " Syntax support
 filetype plugin indent on
@@ -29,6 +31,7 @@ nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-A-t>     :tabnew<CR>
 nnoremap <Leader>q" ciw""<Esc>P
 nnoremap <Leader>q' ciw''<Esc>P
+nnoremap <Leader>ca :ThesaurusQueryReplaceCurrentWord<CR>
 cmap W w ! sudo tee %
 
 " Fix neocomplete and multiple-cursor issue
@@ -60,6 +63,10 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
+Plug 'ron89/thesaurus_query.vim'
+Plug 'dpelle/vim-LanguageTool'
+let g:languagetool_jar='$HOME/.vim/languagetool-commandline.jar'
+let g:languagetool_win_height=10
 
 " Snippets Plugins and Config
 Plug 'SirVer/ultisnips'
