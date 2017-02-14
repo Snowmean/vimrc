@@ -20,6 +20,9 @@ set mouse=a
 set clipboard=unnamedplus
 set spell spelllang=en_us
 
+" Fix Mac backspace issue
+set backspace=indent,eol,start
+
 " Syntax support
 filetype plugin indent on
 syntax on
