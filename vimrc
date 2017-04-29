@@ -33,7 +33,7 @@ set backspace=indent,eol,start
 " Syntax support
 filetype plugin indent on
 syntax on
-colorscheme desert
+colorscheme torte
 set list listchars=tab:→\ ,trail:·
 
 " Keys remapping
