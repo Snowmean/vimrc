@@ -20,6 +20,7 @@ set mouse=a
 set clipboard=unnamedplus
 set spell spelllang=en_us
 set nolist wrap linebreak breakat&vim
+set guifont=PT\ Mono:h13
 
 " Fixing spelling highlight
 function s:SetSpellHightlight()
@@ -44,6 +45,7 @@ nnoremap <Leader>q" ciw""<Esc>P
 nnoremap <Leader>q' ciw''<Esc>P
 nnoremap <Leader>ca :ThesaurusQueryReplaceCurrentWord<CR>
 cmap W w ! sudo tee %
+cmap C w ! /usr/bin/pbcopy
 
 " Fix neocomplete and multiple-cursor issue
 function! Multiple_cursors_before()
@@ -74,8 +76,6 @@ Plug 'scrooloose/nerdtree'
 let NERDTreeChDirMode=2
 map <F3> :NERDTreeToggle<CR>
 
-Plug 'vim-ruby/vim-ruby'
-Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'ron89/thesaurus_query.vim'
@@ -88,5 +88,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips"]
 
 call plug#end()
