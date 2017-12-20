@@ -20,7 +20,7 @@ set mouse=a
 set clipboard=unnamedplus
 set spell spelllang=en_us
 set nolist wrap linebreak breakat&vim
-set guifont=PT\ Mono:h13
+set guifont=Roboto\ Mono:h14
 
 " Fixing spelling highlight
 function s:SetSpellHightlight()
@@ -34,7 +34,7 @@ set backspace=indent,eol,start
 " Syntax support
 filetype plugin indent on
 syntax on
-colorscheme torte
+colorscheme zellner
 set list listchars=tab:→\ ,trail:·
 
 " Keys remapping
