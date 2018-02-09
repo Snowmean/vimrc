@@ -20,55 +20,34 @@ set mouse=a
 set clipboard=unnamedplus
 set spell spelllang=en_us
 set nolist wrap linebreak breakat&vim
-set guifont=Roboto\ Mono:h14
-
-" Fixing spelling highlight
-function s:SetSpellHightlight()
-    hi SpellBad ctermbg=52
-endfunction
-autocmd VimEnter * call s:SetSpellHightlight()
-
-" Fix Mac backspace issue
 set backspace=indent,eol,start
 
 " Syntax support
 filetype plugin indent on
 syntax on
-colorscheme zellner
+highlight SpellBad ctermbg=DarkBlue
 set list listchars=tab:→\ ,trail:·
 
 " Keys remapping
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-A-t>     :tabnew<CR>
 nnoremap <Leader>q" ciw""<Esc>P
 nnoremap <Leader>q' ciw''<Esc>P
 nnoremap <Leader>ca :ThesaurusQueryReplaceCurrentWord<CR>
 cmap W w ! sudo tee %
-cmap C w ! /usr/bin/pbcopy
+cmap C w ! /usr/bin/xsel -b -i
+" cmap C w ! /usr/bin/pbcopy
 
-" Fix neocomplete and multiple-cursor issue
-function! Multiple_cursors_before()
-    exe 'NeoCompleteLock'
-    echo 'Disabled autocomplete'
-endfunction
-function! Multiple_cursors_after()
-    exe 'NeoCompleteUnlock'
-    echo 'Enabled autocomplete'
-endfunction
-
-" Grammarous config
-let g:grammarous#hooks = {}
-let g:grammarous#languagetool_cmd = 'languagetool'
+" Completion menu setup
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Plugins section
 call plug#begin('~/.vim/plugged')
 
 " Plugins list
-Plug 'Shougo/neocomplete.vim'
-let g:neocomplete#enable_at_startup = 1
+Plug 'maralla/completor.vim'
+inoremap <expr> <Tab>      pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
 
-Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 
 " NERDTree plugin and Config
@@ -77,17 +56,20 @@ let NERDTreeChDirMode=2
 map <F3> :NERDTreeToggle<CR>
 
 Plug 'terryma/vim-multiple-cursors'
-Plug 'easymotion/vim-easymotion'
 Plug 'ron89/thesaurus_query.vim'
+
+" Grammarous
 Plug 'rhysd/vim-grammarous'
+let g:grammarous#hooks = {}
+let g:grammarous#languagetool_cmd = 'languagetool'
 
 " Snippets Plugins and Config
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips"]
+"let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+let g:UltiSnipsSnippetDirectories=["custom_snippets", "plugged/vim-snippets/UltiSnips"]
 
 call plug#end()
