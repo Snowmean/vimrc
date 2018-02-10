@@ -25,7 +25,7 @@ set backspace=indent,eol,start
 " Syntax support
 filetype plugin indent on
 syntax on
-highlight SpellBad ctermbg=DarkBlue
+highlight SpellBad ctermbg=DarkRed ctermfg=White
 set list listchars=tab:→\ ,trail:·
 
 " Keys remapping
